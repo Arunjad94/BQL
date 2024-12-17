@@ -1,3 +1,6 @@
 1. This Query give Consumption of BTU by maximum - mininum value of KWH over the period from history table
 "slot:Numeric_History/historyConfig/NumericHistoryCalc|bql:select (max(value)-min(value))+ ' Kw-hr' as 'Consumption over given time period' from baja:StatusNumeric where name like '*um'"
 2.
+"history:/KONE_SUPER_STATION/NMX_MP8_KWH?period=lastMonth|bql:history:HistoryRollup.rollup(history:RollupInterval 'daily')"
+
+station:|slot:/Drivers|bql:select displayName, MAX(out.value), Count(*) from control:NumericPoint
