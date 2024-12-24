@@ -1,0 +1,156 @@
+*******************************************************************************************************************************************************************************
+Bformat in Tridium Niagara allows you to display values or information in a normal format for GUI or messaging purposes
+*******************************************************************************************************************************************************************************
+
+//Value + Status of the Out slot
+%.%
+
+//Value of the Out slot with facets eg. Enabled
+%out.value%	
+
+//Status of the Out slot eg. (ok) @10
+%out.status%	
+
+//Displays the level on writable points that the point is being written to eg. 10
+%activeLevel%
+
+//Status of the proxy point as a string eg. ok
+%status.flagsToString% 
+
+//Get the total elapsed time in hours
+%Hours%	
+//Get the total elapsed time in minutes
+%Minutes%	
+//Display time value as text like “01-Mar-24”
+%time().toDateString%
+
+//Display Name of the component
+%displayName%	
+
+//Display Name of the component showing only the part from the first to the third character
+%displayName.substring(0,3)%	
+
+//Display Name of the component showing only the end part from the second-last character
+%displayName.substring(-2)%	
+
+//Name of the component
+%name%	
+
+//Display Name of the parent component(1 level up)
+%parent.displayName%	
+
+//Name of the parent component(1 level up)
+%parent.name%	
+
+//Name of the parent of the parent component(2 levels up)
+%parent.parent.name%	
+
+//Name of the device in which a proxy point resides(no matter how many levels above the point)
+%parent.proxyExt.device.name%	
+
+//Name of the network in which a proxy point resides(no matter how many levels above the point)
+%parent.proxyExt.network.name%	
+
+//Returns the username of the user logged in(use “ord” “station:|slot:/”)
+%user()%	
+//Returns the current time(use “ord” “station:|slot:/”)
+%time()%	
+//Returns the current time as above but in a text, string, format 15-Apr-24”
+%time().toDateString% 
+
+
+*******************************************************************************************************************************************************************************
+
+DiscreteTotalizerExt
+%changeOfStateCount%
+%elapsedActiveTime%
+
+%elapsedActiveTimeNumeric% is > '2000'  [Needs testing]
+
+*******************************************************************************************************************************************************************************
+
+MQTT
+
+//On an MQTT point, returns the “topic” text
+%proxyExt.topic%	
+
+*******************************************************************************************************************************************************************************
+
+Alarm Bformat
+
+//(to use on Alarm Extension Text)Returns the “Source Name” within the Fault, Offnormal or Normal text of an alarm
+%alarmData.sourceName%	
+
+//(to use on Alarm Extension Text)Returns the “High Limit” within the Fault, Offnormal or Normal text of an alarm
+%alarmData.highLimit%
+
+//(to use on Alarm Extension Text)Returns the “Low Limit” within the Fault, Offnormal or Normal text of an alarm
+%alarmData.lowLimit%	
+
+//(to use in toNormal text) 
+%alarmData.sourceName% is OK
+%alarmData.sourceName% is normal
+
+//(to use in toOffNormal text box) Alarm Name will be displayed along with the text and High Limit/Low Limit Setpoint
+%alarmData.source% is above %alarmData.highLimit% degrees
+%alarmData.source% is above %alarmData.lowLimit% degrees
+
+*******************************************************************************************************************************************************************************
+The following list is a list posted on HVAC talk by JThompson it came in useful when I was configuring SMS alarm message from N4 controller for the first time!
+*******************************************************************************************************************************************************************************
+timestamp = Timestamp
+uuid = Uuid
+sourceState = Source State
+ackState = Ack State
+ackRequired = Ack Required
+source=Source
+alarmClass = Alarm Class
+priority = Priority
+normalTime = Normal Time
+ackTime = Ack Time
+user = User
+alarmData = Alarm Data
+alarmData.escalated = Escalated
+alarmData.msgText = Message Text
+alarmData.fromState = From State
+alarmData.toState = To State
+alarmData.notifyType = Notify Type
+alarmData.status = Status
+alarmData.newValue = New Value
+alarmData.setptValue = Set Point Value
+alarmData.errorLimit = Error Limit
+alarmData.deadband = Deadband
+alarmData.Count = Count
+alarmData.highLimit = High Limit
+alarmData.lowLimit = Low Limit
+alarmData.alarmValue = Alarm Value
+alarmData.offnormalValue = Offnormal Value
+alarmData.faultValue = Fault Value
+alarmData.presentValue = Present Value
+alarmData.numericValue = Numeric Value
+alarmData.feedbackValue = Feedback Value
+alarmData.feedbackNumeric = Feedback Numeric
+alarmData.controlledValue = Controlled Value
+alarmData.hyperlinkOrd = Hyperlink Ord
+alarmData.soundFile = Sound File
+alarmData.icon = Icon
+alarmData.sourceName = Source Name
+alarmData.notes = Notes
+alarmData.instructions = Instructions
+alarmData.TimeZone = Time Zone
+alarmTransition = Alarm Transition
+lastUpdate = Last Update
+
+*******************************************************************************************************************************************************************************
+CurrentTime block
+
+//Using the “CurrentTime” block available from the kitControl palette
+
+%out.prevDay%	
+%out.prevMonth%
+%out.prevYear%
+%out.Hour%	
+%out.Minute%
+%out.Day%
+%out.Month%
+%out.Year%
