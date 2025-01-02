@@ -4,3 +4,6 @@
 "history:/KONE_SUPER_STATION/NMX_MP8_KWH?period=lastMonth|bql:history:HistoryRollup.rollup(history:RollupInterval 'daily')"
 
 station:|slot:/Drivers|bql:select displayName, MAX(out.value), Count(*) from control:NumericPoint
+
+Referance Link
+"https://icdocs.ismacontrolli.com/kb/article/niagara-px-view-creating-a-drop-down-menu?form=MG0AV3"
